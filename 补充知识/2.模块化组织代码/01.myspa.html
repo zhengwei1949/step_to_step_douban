@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>我的单页应用程序</title>
+</head>
+<body ng-app="myApp">
+  <ul>
+    <li><a href="#/find">发现音乐</a></li>
+    <li><a href="#/mine">我的音乐</a></li>
+    <li><a href="#/friend">我的朋友</a></li>
+  </ul>
+  <div id="box" ng-view></div>
+  <script src="./libs/angular.js"></script>
+  <script src="./libs/angular-route.js"></script>
+  <script>
+    var myApp = angular.module('myApp',['ngRoute']);
+    myApp.config(['$routeProvider',function($routeProvider){
+        $routeProvider
+            .when('/find',{
+                template:'<span>{{info}}</span>',
+                controller:'findController'
+            })
+            .when('/mine',{
+                template:'<span>{{info}}</span>',
+                controller:'mineController'
+            })
+            .when('/friend',{
+                template:'<span>{{info}}</span>',
+                controller:'friendController'
+            })
+            .when('/blood/:num?',{
+                template:'<h3>第{{num}}滴血</h3>',
+                controller:'bloodController'
+            })
+            .when('/404',{
+                template:'404 Not Found'
+            })
+            .otherwise({
+                redirectTo:'404'
+            })
+    }]);
+
+    myApp.controller('findController',['$scope',function($scope){
+        $scope.info = '这是发现音乐';
+    }]);
+
+    myApp.controller('mineController',['$scope',function($scope){
+        $scope.info = '这是我的音乐';
+    }]);
+
+    myApp.controller('friendController',['$scope',function($scope){
+        $scope.info = '这是我的朋友';
+    }]);
+
+    myApp.controller('bloodController',['$scope','$routeParams',function($scope,$routeParams){
+        // console.log($routeParams);
+        $scope.num =$routeParams.num || 1;
+    }])
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>我的单页应用程序</title>
+</head>
+<body ng-app="myApp">
+  <ul>
+    <li><a href="#/find">发现音乐</a></li>
+    <li><a href="#/mine">我的音乐</a></li>
+    <li><a href="#/friend">我的朋友</a></li>
+  </ul>
+  <div id="box">
+    <p ng-view></p>
+  </div>
+  <script src="./libs/angular.js"></script>
+  <script src="./libs/angular-route.js"></script>
+  <script>
+      //路由 控制器 视图
+    var findModule = angular.module('findModule',['ngRoute']);
+    findModule.config(['$routeProvider',function($routeProvider){
+        $routeProvider
+        .when('/find',{
+            template:'<h3>{{info}}</h3>',
+            controller:'findController'
+        })
+    }]);
+    findModule.controller('findController',function($scope){
+        $scope.info = '发现音乐';
+    });
+
+    var mineModule = angular.module('mineModule',['ngRoute']);
+    mineModule.config(['$routeProvider',function($routeProvider){
+        $routeProvider
+        .when('/mine',{
+            template:'<h3>{{info}}</h3>',
+            controller:'mineController'
+        })
+    }]);
+    mineModule.controller('mineController',function($scope){
+        $scope.info = '我的音乐';
+    });
+
+
+    var friendModule = angular.module('friendModule',['ngRoute']);
+    friendModule.config(['$routeProvider',function($routeProvider){
+        $routeProvider
+        .when('/friend',{
+            template:'<h3>{{info}}</h3>',
+            controller:'friendController'
+        })
+    }]);
+    friendModule.controller('friendController',function($scope){
+        $scope.info = '朋友音乐';
+    });
+
+    var myApp = angular.module('myApp',['ngRoute','findModule','mineModule','friendModule']);
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // 根据url中锚点值的变化，动态的请求不同的数据，把它显示出来
+
+    // 1.监听url中锚点值变化的事件, hashchange
+    // window.addEventListener('hashchange', function(){
+    //   // 2.根据不现的锚点值去请求不同的数据
+    //   var hash = location.hash;//location.href
+    //   switch(hash){
+    //     case '#/find':
+    //     // 请求数据
+    //        $.get('./02.find.json',function(data){
+    //          // 3.把它显示出来
+    //          $('#box').html(data.data)
+    //        },'json')
+    //     break;
+    //     case '#/mine':
+    //       // 请求数据
+    //        $.get('./02.mine.json',function(data){
+    //          // 3.把它显示出来
+    //          $('#box').html(data.data)
+    //        },'json')
+    //     break;
+    //     case '#/friend':
+    //     // 请求数据
+    //        $.get('./02.friend.json',function(data){
+    //          // 3.把它显示出来
+    //          $('#box').html(data.data)
+    //        },'json')
+    //     break;
+    //   }
+       
+      
+    // })
+    
+  </script>
+</body>
+</html>

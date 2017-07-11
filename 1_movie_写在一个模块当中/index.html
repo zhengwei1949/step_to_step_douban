@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>电影展示</title>
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/wap.css">
+</head>
+
+<body ng-app="main">
+    <!-- 顶部导航栏开始 -->
+    <div class="top">
+        <div class="header">
+            <a href="#/home_page"><img src="assets/img/logo.png" alt=""></a>
+            <div class="search">
+                <input class="my-input" type="text" placeholder="电影搜索">
+                <button>搜索</button>
+            </div>
+        </div>
+        <nav class="nav">
+            <ul>
+                <!--li中添加 active 类样式，显示焦点状态。-->
+                <li class="active"><a href="#/home_page">首页</a></li>
+                <li><a href="#/in_theaters">正在热映</a></li>
+                <li><a href="#/coming_soon">即将上映</a></li>
+                <li><a href="#/top250">Top250</a></li>
+            </ul>
+        </nav>
+    </div>
+    <!-- 顶部导航栏结束 -->
+    <div class="container">
+        <div ng-view></div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <p>版权所有&copy; 前端与移动开发学院 火骑士空空(允许侵权)</p>
+        </div>
+    </footer>
+    <script src="assets/js/prefixfree.min.js"></script>
+    <script src="./node_modules/angular/angular.js"></script>
+    <script src="./node_modules/angular-route/angular-route.js"></script>
+    <script>
+      // 1.首页模块
+        var app = angular.module('main', ['ngRoute'])
+
+        // 2.路由规则
+        app.config(['$routeProvider',function($routeProvider){
+            $routeProvider
+                .when('/home_page',{// #/home_page
+                    templateUrl:'tpl/home.html',
+                    controller:'homeController'
+                })
+                .when('/in_theaters',{  // #/in_theaters
+                    templateUrl:'./tpl/in_theaters.html',
+                    controller:'in_theatersController'
+                })
+                .when('/coming_soon',{  // #/coming_soon
+                    templateUrl:'./tpl/coming_soon.html',
+                    controller:'coming_soonController'
+                })
+                .when('/top250',{  // #/top250
+                    templateUrl:'./tpl/top250.html',
+                    controller:'top250Controller'
+                }); 
+        }])
+
+        app.controller('homeController', ['$scope',function($scope){
+           
+        }])
+
+        app.controller('in_theatersController', ['$scope',function($scope){
+            
+        }])
+
+        app.controller('coming_soonController', ['$scope',function($scope){
+            
+        }])
+
+        app.controller('top250Controller', ['$scope',function($scope){
+            
+        }])
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>myJsonp</title>
+</head>
+<body>
+  <script>
+  // jsonp方法 test(json)
+    function myJsonp(url, arg, fn){
+        var oScript = document.createElement('script');
+        // function test(data){
+        //     fn(data);
+        // }
+        // 计数器 _1 _2 
+        var fnName = 'abc_' +  Date.now();
+
+        window[fnName] = function(data){
+            fn(data);
+        }
+        url += '?callback=' + fnName;
+        for(var i in arg){
+            url += '&' + i + '=' + arg[i];
+        }
+        oScript.src = url;
+        document.body.appendChild(oScript);
+    }
+
+//http://api.douban.com/v2/movie/in_theaters?callback=xxxx&start=1&count=100
+    // $.get("test.php?callback=?", { name: "John", time: "2pm" },function(data){
+    //     console.log(data);
+    // })
+
+    myJsonp('http://api.douban.com/v2/movie/in_theaters',
+      {start:1,count:3},function(data){
+        console.log(1111)
+        // console.log(data)
+      // 成功的回调
+    })
+    myJsonp('http://api.douban.com/v2/movie/in_theaters',
+      {start:1,count:3},function(data){
+        console.log(2222)
+        // console.log(data)
+      // 成功的回调
+    })
+
+
+    // for(var i=0;i<100;) --> 闭包
+  </script>
+</body>
+</html>

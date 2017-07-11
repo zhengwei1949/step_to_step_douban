@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>我的单页应用程序</title>
+</head>
+<body ng-app="myApp">
+  <ul>
+    <li><a href="#/find">发现音乐</a></li>
+    <li><a href="#/mine">我的音乐</a></li>
+    <li><a href="#/friend">我的朋友</a></li>
+  </ul>
+  <div id="box">
+    <p ng-view></p>
+  </div>
+  <script src="./libs/angular.js"></script>
+  <script src="./libs/angular-route.js"></script>
+  <script>
+    var myApp = angular.module('myApp',['ngRoute']);
+    myApp.config(['$routeProvider',function($routeProvider){
+        $routeProvider
+        .when('/find',{
+            template:'<h3>{{info}}</h3>',
+            controller:'findController'
+        })
+        .when('/mine',{
+            template:'<h3>{{info}}</h3>',
+            controller:'mineController'
+        })
+        .when('/friend',{
+            template:'<h3>{{info}}</h3>',
+            controller:'friendController'
+        })
+        .when('/articles/1',{
+            template:'<h3>第{{info}}篇文章</h3>',
+            controller:'article1Controller'
+        })
+        .when('/articles/2',{
+            template:'<h3>第{{info}}篇文章</h3>',
+            controller:'article2Controller'
+        })
+        .when('/articles/3',{
+            template:'<h3>第{{info}}篇文章</h3>',
+            controller:'article3Controller'
+        })
+
+
+        // 文章列表页 100条文章 --> 100个锚点 --> 100个路由 
+    }]);
+    myApp.controller('findController',function($scope){
+        $scope.info = '发现音乐';
+    });
+
+    myApp.controller('mineController',function($scope){
+        $scope.info = '我的音乐';
+    });
+
+    myApp.controller('friendController',function($scope){
+        $scope.info = '朋友音乐';
+    });
+
+
+    myApp.controller('article1Controller',function($scope){
+        $scope.info = 1;
+    });
+
+    myApp.controller('article2Controller',function($scope){
+        $scope.info = 2;
+    });
+
+    myApp.controller('article3Controller',function($scope){
+        $scope.info = 3;
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // 根据url中锚点值的变化，动态的请求不同的数据，把它显示出来
+
+    // 1.监听url中锚点值变化的事件, hashchange
+    // window.addEventListener('hashchange', function(){
+    //   // 2.根据不现的锚点值去请求不同的数据
+    //   var hash = location.hash;//location.href
+    //   switch(hash){
+    //     case '#/find':
+    //     // 请求数据
+    //        $.get('./02.find.json',function(data){
+    //          // 3.把它显示出来
+    //          $('#box').html(data.data)
+    //        },'json')
+    //     break;
+    //     case '#/mine':
+    //       // 请求数据
+    //        $.get('./02.mine.json',function(data){
+    //          // 3.把它显示出来
+    //          $('#box').html(data.data)
+    //        },'json')
+    //     break;
+    //     case '#/friend':
+    //     // 请求数据
+    //        $.get('./02.friend.json',function(data){
+    //          // 3.把它显示出来
+    //          $('#box').html(data.data)
+    //        },'json')
+    //     break;
+    //   }
+       
+      
+    // })
+    
+  </script>
+</body>
+</html>

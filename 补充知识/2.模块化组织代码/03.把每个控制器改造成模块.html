@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>我的单页应用程序</title>
+</head>
+<body ng-app="myApp">
+  <ul>
+    <li><a href="#/find">发现音乐</a></li>
+    <li><a href="#/mine">我的音乐</a></li>
+    <li><a href="#/friend">我的朋友</a></li>
+  </ul>
+  <div id="box" ng-view></div>
+  <script src="./libs/angular.js"></script>
+  <script src="./libs/angular-route.js"></script>
+  <script>
+    var myApp1 = angular.module('myApp1',['ngRoute']);
+    myApp1.controller('findController',['$scope',function($scope){
+        $scope.info = '这是发现音乐';
+    }]);
+    myApp1.config(['$routeProvider',function($routeProvider){
+        $routeProvider
+            .when('/find',{
+                template:'<span>{{info}}</span>',
+                controller:'findController'
+            })
+    }]);
+
+    var myApp2 = angular.module('myApp2',['ngRoute']);
+    myApp2.controller('mineController',['$scope',function($scope){
+        $scope.info = '我的音乐';
+    }]);
+    myApp2.config(['$routeProvider',function($routeProvider){
+        $routeProvider
+            .when('/mine',{
+                template:'<span>{{info}}</span>',
+                controller:'mineController'
+            })
+    }]);
+
+    var myApp3 = angular.module('myApp3',['ngRoute']);
+    myApp3.controller('friendController',['$scope',function($scope){
+        $scope.info = '这是发现音乐';
+    }]);
+    myApp3.config(['$routeProvider',function($routeProvider){
+        $routeProvider
+            .when('/friend',{
+                template:'<span>{{info}}</span>',
+                controller:'friendController'
+            })
+    }]);
+
+    var myApp = angular.module('myApp',['ngRoute','myApp1','myApp2','myApp3']);
+    
+  </script>
+</body>
+</html>
