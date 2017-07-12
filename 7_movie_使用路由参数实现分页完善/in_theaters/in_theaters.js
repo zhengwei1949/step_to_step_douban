@@ -29,6 +29,8 @@
       MyService.jsonp('https://api.douban.com/v2/movie/in_theaters',
       {start:start,count:$scope.pageSize},function(data){
         $scope.data = data;
+        // 根据总条数及每页大小计算出总页数
+        $scope.totalPage = Math.ceil($scope.data.total/$scope.pageSize)
         $scope.$apply();
       })
 
