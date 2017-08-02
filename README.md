@@ -33,12 +33,12 @@
 从传统意义上来说，路由就是定义一系列的访问地址规则，路由引擎根据这些规则匹配并找到对应的处理页面，然后将请求转发给页面进行处理。按照我们的设计，用户打开我们的程序看到的第一个页面应该是首页，也称为默认路由。
 
 
-| 名称 | 英文名 | 路由  |
+| 名称 | 英文名 | 路由  | 控制器 | 静态模板
 |---|---|---|
-| 首页 | home_page | #/home_page  |
-| 正在热映 | in_theaters | #/in_theaters|
-| 即将上映 | coming_soon | #/coming_soon  |
-| top250 | top250 | #/top250 |
+| 首页 | home_page | #/home_page  | homePageController | homePage.tpl
+| 正在热映 | in_theaters | #/in_theaters| in_theatersController | in_theaters.tpl
+| 即将上映 | coming_soon | #/coming_soon  | coming_soonController | coming_soon.tpl
+| top250 | top250 | #/top250 | top250Controller | top250.tpl
 
 
 ### 豆瓣的例子应该如何写(视频中跳过了前面的几步，所以大家可能会觉得蒙蔽)
