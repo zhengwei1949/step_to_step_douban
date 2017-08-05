@@ -18,7 +18,7 @@
     'MyService'
     ,function($scope,$routeParams,MyService){
     // 获取数据
-    MyService.jsonp('http://api.douban.com/v2/movie/subject/'+$routeParams.id,{},function(data){
+    MyService.jsonp('https://api.douban.com/v2/movie/subject/'+$routeParams.id,{},function(data){
       $scope.data = data
       $scope.$apply()
     })

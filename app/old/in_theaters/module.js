@@ -41,7 +41,7 @@
      // nowPage 3  ,start 10
     var start = ($scope.nowPage - 1)*$scope.pageSize;
     // console.log(start);
-     MyJsonp.jsonp('http://api.douban.com/v2/movie/in_theaters',
+     MyJsonp.jsonp('https://api.douban.com/v2/movie/in_theaters',
         {start:start,count:$scope.pageSize},function(data){
             // angular不能够监视异步操作中对数据模型的改变
             $scope.data=data;  // 10/5, 9/5 ,11/5

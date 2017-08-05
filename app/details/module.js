@@ -17,7 +17,7 @@
   app.controller('detailsController',['$scope','$routeParams','MyJsonp'
     ,function($scope,$routeParams,MyJsonp){
 
-      MyJsonp.jsonp('http://api.douban.com/v2/movie/subject/'+$routeParams.id,
+      MyJsonp.jsonp('https://api.douban.com/v2/movie/subject/'+$routeParams.id,
         {},
         function(data){
           $scope.movie=data;

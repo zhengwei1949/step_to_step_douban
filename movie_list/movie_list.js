@@ -33,7 +33,7 @@
     var start  = ($scope.page-1)*$scope.pageSize  // 从第几条开始
 
 
-    MyService.jsonp('http://api.douban.com/v2/movie/'+$routeParams.movieType,
+    MyService.jsonp('https://api.douban.com/v2/movie/'+$routeParams.movieType,
       {start:start,count:$scope.pageSize,q:$routeParams.q},function(data){
         $scope.data = data // 在异步给数据模型赋值，angular不会知道
 
@@ -60,7 +60,7 @@
 
 
     // 通过跨域得到数据
-    // $http.jsonp('http://api.douban.com/v2/movie/movie_list',{
+    // $http.jsonp('https://api.douban.com/v2/movie/movie_list',{
     //   jsonCallbackParam:'callback'
     // }).then(function(res){
     //   console.log(res)
