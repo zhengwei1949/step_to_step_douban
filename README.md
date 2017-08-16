@@ -19,7 +19,7 @@
 
 
 | 名称 | 英文名 | 路由  | 控制器 | 静态模板
-|---|---|---|
+|---|---|---|---|---|
 | 首页 | home_page | #/home_page  | homePageController | homePage.tpl
 | 正在热映 | in_theaters | #/in_theaters| in_theatersController | in_theaters.tpl
 | 即将上映 | coming_soon | #/coming_soon  | coming_soonController | coming_soon.tpl
@@ -27,7 +27,8 @@
 
 
 ### 豆瓣的例子应该如何写(视频中跳过了前面的几步，所以大家可能会觉得蒙蔽)
-- https://github.com/zhengwei1949/step_to_step_douban/tree/master/1_movie_%E5%86%99%E5%9C%A8%E4%B8%80%E4%B8%AA%E6%A8%A1%E5%9D%97%E5%BD%93%E4%B8%AD
+https://github.com/zhengwei1949/step_to_step_douban/tree/master/1_movie_%E5%86%99%E5%9C%A8%E4%B8%80%E4%B8%AA%E6%A8%A1%E5%9D%97%E5%BD%93%E4%B8%AD
+
 这里面要想理解为什么要拆分成这么多文件，一定要理解，如果是自己一个人在玩，那肯定可以像我写的这第一个demo一样把所有的js写在一个文件里面，但是真实的项目是由许多技术同时在分工协作开发，所以，我们要利用angular的模块化的思想进行拆分代码
 
 
