@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+    <script src="./angular.js"></script>
+    <script>
+        var myApp = angular.module('myApp',[]);
+        myApp.controller('myController',['$scope','$http',function($scope,$http){
+            $http.jsonp('http://localhost/jsonp.php?callback=JSON_CALLBACK').then(function(res){
+                console.log(res);
+            })
+            $http.jsonp('http://localhost/jsonp.php?callback=JSON_CALLBACK').then(function(res){
+                console.log(res);
+            })
+            $http.jsonp('http://localhost/jsonp.php?callback=JSON_CALLBACK').then(function(res){
+                console.log(res);
+            })
+        }]);
+    </script>
+</body>
+</html>

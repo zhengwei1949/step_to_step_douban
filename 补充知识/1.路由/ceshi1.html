@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset='UTF-8'>
+        <title>demo</title>
+    </head>
+    <body ng-app='myApp'>
+        <div>
+            <div ng-view></div>
+        </div>
+        <script src='libs/angular.js'></script>
+        <script src="./libs/angular-route.js"></script>
+        <script>
+            // $routeParams --> 很多锚点匹配上一个路由 otherwise 没有一个锚点匹配上了，
+            var app = angular.module('myApp',['ngRoute']);
+            // 2楼 baidu 3 ali 4tengxun
+            app.config(['$routeProvider',function($routeProvider){
+                $routeProvider
+                             .when('/company/:myname?',{
+                                template:'<h3>我要去{{msg}}</h3>',
+                                controller:'demoController'
+                             })
+                             .when('/404',{
+                                 template:'404'
+                             })
+                             .otherwise({
+                                 redirectTo:'/404'
+                             })
+                            //  .when('/baidu',{
+                            //     template:'baidu'
+                            //  })
+                            //  .when('/tx',{
+                            //     template:'tx'
+                            //  })
+            }])
+            
+            app.controller('demoController',['$scope','$routeParams',function($scope,$routeParams){
+                //不安全的
+                // $scope.msg = 
+                console.log($routeParams);
+                if(!$routeParams.myname)$routeParams.myname = '默认公司'
+                $scope.msg = $routeParams.myname;
+            }])
+        </script>
+    </body>
+</html> 
