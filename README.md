@@ -1,3 +1,6 @@
+### todo
+- 先考虑用错的思路来思考来写，再考虑用正确的思路来写
+
 [线上查看地址](https://zhengwei1949.github.io/step_to_step_douban/#/home_page)
 
 大家在练习之前，可以先不要想自己一定要用angular来做，可以想像如果我们在没学angular之前应该怎么做这个效果?
